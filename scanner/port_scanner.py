@@ -108,12 +108,8 @@ def get_service_name_normalized(service_name, product_name):
 
     service_lower = service_name.lower()
 
-    # First, try direct mapping
-    if service_lower in service_mapping:
-        return service_mapping[service_lower]
-
-    # If no direct match, check the product name for keywords
-    # This handles cases where nmap gives us detailed product info
+    # Check product name first since it provides more specific identification
+    # This handles cases where service is generic (like http) but product reveals the actual software (nginx)
     if product_name:
         product_lower = product_name.lower()
         if 'apache' in product_lower:
@@ -129,6 +125,10 @@ def get_service_name_normalized(service_name, product_name):
                 return 'vsftpd'
             elif 'proftpd' in product_lower:
                 return 'ProFTPD'
+
+    # If product name didn't match, try the generic service mapping
+    if service_lower in service_mapping:
+        return service_mapping[service_lower]
 
     # If nothing matches, just return the original name
     return service_name
