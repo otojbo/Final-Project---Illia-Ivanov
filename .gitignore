@@ -5,6 +5,13 @@
 .Python
 __pycache__/
 
+# CVE Database
+data/cve_database.csv
+data/*.csv
+
+# Outputs
+outputs/
+
 # Virtual Environment
 venv/
 env/
