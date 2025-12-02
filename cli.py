@@ -1,6 +1,7 @@
 import argparse
 import json
 import csv
+import os
 from scanner import main_scanner
 
 
@@ -9,6 +10,13 @@ def save_results_json(results, filename):
     Saves scan results to JSON file
     I used indent=2 to make the JSON file readable and easy to inspect
     """
+    # Create outputs directory if it doesn't exist
+    os.makedirs('outputs', exist_ok=True)
+
+    # If user didn't specify a path, save to outputs/
+    if not os.path.dirname(filename):
+        filename = os.path.join('outputs', filename)
+
     with open(filename, 'w') as json_file:
         json.dump(results, json_file, indent=2)
     print(f"✓ Results saved to {filename}")
@@ -22,6 +30,13 @@ def save_results_csv(results, filename):
     if not results['success'] or not results['findings']:
         print("No findings to save to CSV")
         return
+
+    # Create outputs directory if it doesn't exist
+    os.makedirs('outputs', exist_ok=True)
+
+    # If user didn't specify a path, save to outputs/
+    if not os.path.dirname(filename):
+        filename = os.path.join('outputs', filename)
 
     # I selected these specific fields because they contain the most important
     # vulnerability information for reporting
