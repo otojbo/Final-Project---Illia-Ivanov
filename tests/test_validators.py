@@ -1,3 +1,7 @@
+# INF 601 - Advanced Python
+# Illia Ivanov
+# Final Project
+
 import unittest
 
 from scanner import port_scanner

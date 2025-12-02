@@ -1,3 +1,7 @@
+# INF 601 - Advanced Python
+# Illia Ivanov
+# Final Project
+
 # Severity to numeric weight mapping
 SEVERITY_WEIGHTS = {
     'LOW': 1,

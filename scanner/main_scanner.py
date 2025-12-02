@@ -1,3 +1,7 @@
+# INF 601 - Advanced Python
+# Illia Ivanov
+# Final Project
+
 from scanner import cve_loader, port_scanner, version_matcher, risk_scorer
 
 

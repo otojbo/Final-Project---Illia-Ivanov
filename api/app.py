@@ -1,3 +1,7 @@
+# INF 601 - Advanced Python
+# Illia Ivanov
+# Final Project
+
 from flask import Flask, request, jsonify
 from scanner import main_scanner
 

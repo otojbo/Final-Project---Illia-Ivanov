@@ -1,3 +1,7 @@
+# INF 601 - Advanced Python
+# Illia Ivanov
+# Final Project
+
 import requests
 import csv
 import time
